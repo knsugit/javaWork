@@ -1,0 +1,16 @@
+name:John
+sex:M
+age:12
+name:Alice
+sex:W
+age:14
+name:Jack
+sex:M
+age:11
+sID:123456
+classNo:13
+name:Kim
+sex:W
+age:20
+sID:20171105
+classNo:15
