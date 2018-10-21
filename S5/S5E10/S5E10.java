@@ -26,8 +26,8 @@ class Student extends Person{
         this.speciality = speciality;
     }
     String getDetail(){
-        return "name:" + name + "\nsex:" + sex + "\nage:" + age
-                + "\nsID:" + sID + "\nspeciality:" + speciality;
+        return "name:       " + name + "\nsex:        " + sex + "\nage:        " + age
+                + "\nsID:        " + sID + "\nspeciality: " + speciality;
     }
 }
 
@@ -51,16 +51,18 @@ class Teacher extends Person{
         this.department = department;
     }
     String getDetail(){
-        return "name:" + name + "\nsex:" + sex + "\nage:" + age
-                + "\ntID:" + tID + "\ndepartment:" + department;
+        return "name:       " + name + "\nsex:        " + sex + "\nage:        " + age
+                + "\ntID:        " + tID + "\ndepartment: " + department;
     }
 }
 
 public class S5E10{
     public static void main(String args[]){
+        System.out.println("Student:");
         Student s = new Student("Mike", 'M', 13, 201722, "SE");
         System.out.println(s.getDetail());
-        Teacher t = new Teacher("name", 'W', 25, 201733, "EE");
+        System.out.println("\nTeacher:");
+        Teacher t = new Teacher("Skyler", 'W', 25, 201733, "EE");
         System.out.println(t.getDetail());
     }
 }

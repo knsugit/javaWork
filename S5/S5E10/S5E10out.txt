@@ -1,0 +1,13 @@
+Student:
+name:       Mike
+sex:        M
+age:        13
+sID:        201722
+speciality: SE
+
+Teacher:
+name:       Skyler
+sex:        W
+age:        25
+tID:        201733
+department: EE
