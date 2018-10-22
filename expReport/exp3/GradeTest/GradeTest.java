@@ -2,7 +2,9 @@ class Grade{
     public double StuGrade;
     public double TeaGrade;
     public double CouGrade;
-    void setGrade(double grade){}
+    void setGrade(double StuGrade, double TeaGrade, double CouGrade){
+        
+    }
     double getGrade(){
         return 0;
     }
