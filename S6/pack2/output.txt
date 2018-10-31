@@ -1,0 +1,5 @@
+**在不同包的子类中，可访问的成员**
+Protected member = 3
+Public member = 4
+**在不同包的非子类中，可访问的成员**
+Public member = 4

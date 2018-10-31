@@ -1,0 +1,13 @@
+**同一类中可以访问的成员：**
+Private member = 1
+Default member = 2
+Protected member = 3
+Public member = 4
+**子类类中可以访问的成员：**
+Default member = 2
+Protected member = 3
+Public member = 4
+**同一包中可以访问的成员：**
+Default member = 2
+Protected member = 3
+Public member = 4
