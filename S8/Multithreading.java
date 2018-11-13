@@ -1,7 +1,7 @@
 public class Multithreading {
     public static void main(String[] args) {
         Test he = new Test();
-        try{
+        /*try{
             Thread t1 = new Thread(he);
             t1.start();
             t1.join();
@@ -12,27 +12,22 @@ public class Multithreading {
             t3.start();
             t3.join();
         }
-        catch(Exception e){}
+        catch(Exception e){}*/
 
-        /*new Thread(he).start();
         new Thread(he).start();
         new Thread(he).start();
         new Thread(he).start();
-        new Thread(he).start();*/
+        new Thread(he).start();
+        new Thread(he).start();
     }
 }
 
 class Test implements Runnable {
     int top = 1;
-    public void run() {
-        /*while(top > 0) {
-            try {
-                Thread.sleep(1);
-            }
-            catch(Exception e){}
-            
-        }*/
-        System.out.println(Thread.currentThread().getName().toString()
-                                 + " is running: top= " + top);
+    public synchronized void run() {
+        
+            System.out.println(Thread.currentThread().getName().toString()
+                                 + " is running: top = " + top++);
+        
     }
 }
