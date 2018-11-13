@@ -1,51 +1,29 @@
 public class S8E3 {
-    public static ThreadB b;
-    public static void main(String[] args){
-        b = new ThreadB();
-        ThreadC c = new ThreadC();
-        System.out.println("Waiting for b to complete...");
-        c.start();
+    public static void main(String[] args) {
+        ThreadB b = new ThreadB();
         b.start();
-        
-        synchronized(b){
+        synchronized(b) {
             try{
-                Thread.sleep(1000);
+                System.out.println("Waiting for b to complete...");
                 b.wait();
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
- 
-            System.out.println("MAIN: " + b.total);
+            System.out.println("Total is: " + b.total);
         }
     }
 }
  
-class ThreadB extends Thread{
+class ThreadB extends Thread {
     int total;
     @Override
-    public void run(){
-        synchronized(this){
-            for(int i=0; i<100 ; i++){
+    public void run() {
+        synchronized(this) {
+            for (int i = 0; i < 100; i++) {
                 total += i;
             }
             notify();
-            //notifyAll();
-            
         }
-    }
-}
-
-class ThreadC extends Thread{
-    public void run(){
-        synchronized(S8E3.b){
-            try{
-                //Thread.sleep(0);
-                S8E3.b.wait();
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
-            
-            System.out.println("C: " + S8E3.b.total);
-        }
+        
     }
 }
