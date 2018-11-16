@@ -5,7 +5,7 @@ public class S8E4 {
     public static Integer goods = 0;
     public static void main(String[] args) {
         new Thread(new ProducerThread()).start();
-        new Thread(new ConsumerThread()).start();
+        new Thread(new ConsumerThread()).start();;
     }
 }
 
@@ -35,7 +35,7 @@ class ConsumerThread implements Runnable {
     public void run() {
         while(true) {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             }
             catch(Exception e) {}
             synchronized(S8E4.goods) {
