@@ -1,8 +1,10 @@
 import java.util.*;
-import java.security.Principal;
 import java.text.*;
 
 public class S8E6s {
+    public static String timeString1;
+    public static String timeString2;
+    public static String timeString3;
     public static void main(String[] args) {
         Thread t1 = new Thread(new PekingTime());
         Thread t2 = new Thread(new TokyoTime());
@@ -10,6 +12,17 @@ public class S8E6s {
         t1.start();
         t2.start();
         t3.start();
+        try {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e) {}
+        while(true) {
+            try {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e) {}
+            System.out.print("Peking: "+timeString1+"\t"+"Tokyo: "+timeString2+"\t"+"London: "+timeString3 + "\r");
+        }
     }
 }
 
@@ -23,7 +36,8 @@ class PekingTime implements Runnable {
             Date date = new Date();
             SimpleDateFormat bjSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
             bjSdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-            System.out.print("Peking:\t" + bjSdf.format(date) + "\r");
+            //System.out.println("Peking:\t" + bjSdf.format(date) + "\r");
+            S8E6s.timeString1 = bjSdf.format(date).toString();
         }
     }
 }
@@ -38,7 +52,8 @@ class TokyoTime implements Runnable {
             Date date = new Date();
             SimpleDateFormat tokyoSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             tokyoSdf.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
-            System.out.print("Tokyo:\t" + tokyoSdf.format(date) + "\r");
+            //System.out.println("Tokyo:\t" + tokyoSdf.format(date) + "\r");
+            S8E6s.timeString2 = tokyoSdf.format(date).toString();
         }
     }
 }
@@ -53,7 +68,8 @@ class LondonTime implements Runnable {
             Date date = new Date();
             SimpleDateFormat londonSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             londonSdf.setTimeZone(TimeZone.getTimeZone("Europe/London"));
-            System.out.print("London:\t" + londonSdf.format(date) + "\r");
+            //System.out.println("London:\t" + londonSdf.format(date) + "\r");
+            S8E6s.timeString3 = londonSdf.format(date).toString();
         }
     }
 }
